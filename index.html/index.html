@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hutshulu Tsutso | Portfolio</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#ecdce4,#decfd8);
+color:#333;
+scroll-behavior:smooth;
+}
+
+/* SCROLL PROGRESS BAR */
+
+#progress{
+position:fixed;
+top:0;
+left:0;
+height:4px;
+background:linear-gradient(90deg,#d63384,#6f42c1);
+width:0%;
+z-index:999;
+}
+
+body::before{
+content:"";
+position:fixed;
+width:200px;
+height:200px;
+background:#ffd6e7;
+border-radius:50%;
+top:120px;
+left:-60px;
+opacity:0.4;
+filter:blur(60px);
+}
+
+body::after{
+content:"";
+position:fixed;
+width:200px;
+height:200px;
+background:#d9e7ff;
+border-radius:50%;
+bottom:80px;
+right:-60px;
+opacity:0.4;
+filter:blur(60px);
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 50px;
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* LOGO */
+
+.logo{
+font-size:24px;
+font-weight:700;
+background:linear-gradient(90deg,#d63384,#6f42c1);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+/* NAV LINKS */
+
+.nav-links{
+list-style:none;
+display:flex;
+gap:28px;
+padding:0;
+margin:0;
+}
+
+.nav-links a{
+text-decoration:none;
+font-size:15px;
+color:#555;
+font-weight:500;
+position:relative;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#d63384;
+}
+
+.nav-links a::after{
+content:"";
+position:absolute;
+width:0;
+height:2px;
+left:0;
+bottom:-6px;
+background:linear-gradient(90deg,#d63384,#6f42c1);
+transition:0.35s;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+/* HEADER */
+
+header{
+text-align:center;
+padding:60px 20px;
+}
+
+/* PROFILE IMAGE */
+
+.profile{
+width:150px;
+height:150px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid white;
+box-shadow:0 0 15px rgba(214,51,132,0.4);
+margin-bottom:15px;
+animation:profileGlow 3s infinite alternate;
+}
+
+@keyframes profileGlow{
+from{box-shadow:0 0 15px rgba(214,51,132,0.3);}
+to{box-shadow:0 0 25px rgba(214,51,132,0.6);}
+}
+
+/* NAME */
+
+.name{
+font-size:52px;
+font-weight:700;
+background:linear-gradient(90deg,#d63384,#6f42c1,#ff8fab);
+-webkit-background-clip:text;
+color:transparent;
+letter-spacing:1px;
+}
+
+/* TYPING */
+
+.typing{
+font-size:20px;
+color:#555;
+margin-top:10px;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 25px;
+}
+
+/* CARD */
+
+.card{
+background:#e8eaf3;
+border-radius:18px;
+padding:28px;
+margin-bottom:28px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+transition:0.3s ease;
+opacity:0;
+transform:translateY(40px);
+}
+
+.card.active{
+opacity:1;
+transform:translateY(0);
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 18px 40px rgba(0,0,0,0.12);
+}
+
+.card h2{
+color:#6f42c1;
+}
+
+/* SKILLS */
+
+.skills span{
+display:inline-block;
+background:linear-gradient(90deg,#ffd6e7,#e9d5ff);
+color:#0a0a0a;
+padding:10px 16px;
+border-radius:25px;
+margin:6px;
+font-size:14px;
+font-weight:500;
+transition:0.3s;
+}
+
+.skills span:hover{
+transform:scale(1.1);
+box-shadow:0 8px 20px rgba(214,51,132,0.3);
+}
+
+/* PROJECT */
+
+.project{
+background:#eaecf3;
+padding:18px;
+border-radius:12px;
+margin-top:10px;
+transition:0.3s;
+}
+
+.project:hover{
+transform:translateY(-4px);
+}
+
+/* BUTTON */
+
+.button{
+display:inline-block;
+background:linear-gradient(270deg,#ffd6e7,#e9d5ff,#ffd6e7);
+background-size:400% 400%;
+color:#0a0a0a;
+padding:10px 22px;
+border-radius:25px;
+font-size:14px;
+font-weight:500;
+text-decoration:none;
+margin-top:10px;
+animation:gradientMove 6s ease infinite;
+transition:0.3s;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.button:hover{
+transform:scale(1.1);
+box-shadow:0 8px 20px rgba(214,51,132,0.3);
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+color:#666;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="progress"></div>
+
+<nav class="navbar">
+
+<div class="logo">Hutshulu</div>
+
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<header>
+
+<img src="../images/profile.jpeg" class="profile" alt="Hutshulu Tsutso">
+
+<h1 class="name">Hutshulu Tsutso</h1>
+
+<p class="typing" id="typing"></p>
+
+<p>Phek, Nagaland, India</p>
+
+</header>
+
+<div class="container">
+
+<div class="card" id="about">
+<h2>About me</h2>
+<p>
+I am a motivated and dedicated individual with a strong passion for 
+continuous learning and personal growth. I enjoy solving problems, collaborating with others, and contributing to meaningful projects. I am always eager to develop new skills, embrace challenges, and improve both personally and professionally.
+</p>
+</div>
+
+<div class="card" id="education">
+<h2>Education</h2>
+
+<p><b>Nagaland University</b></p>
+<p>Bachelor of Technology (B.Tech) – Information Technology</p>
+<p>Expected Graduation: 2027</p>
+
+<br>
+
+<p><b>Government Polytechnic, Kohima</b></p>
+<p>Diploma in Computer Science Engineering</p>
+<p>Completed: 2024</p>
+
+</div>
+
+<div class="card" id="skills">
+<h2>Skills</h2>
+
+<div class="skills">
+<span>HTML</span>
+<span>CSS</span>
+<span>DBMS</span>
+<span>JavaScript</span>
+<span>React Native</span>
+<span>Firebase</span>
+</div>
+
+</div>
+
+<div class="card" id="projects">
+<h2>Projects</h2>
+
+<div class="project">
+<b>E-Commerce Mobile Application</b>
+<p>
+A React Native mobile application integrated with Firebase including wishlist, cart,
+checkout system and seller dashboard.
+</p>
+<a href="#" class="button">View Project</a>
+</div>
+
+<div class="project">
+<b>Automated Fire Suppression System</b>
+<p>
+An automated system designed to detect and extinguish fires in areas that may be hazardous
+or difficult for human intervention.
+</p>
+<a href="#" class="button">View Project</a>
+</div>
+
+</div>
+
+<div class="card" id="contact">
+<h2>Contact</h2>
+
+<p>Email: <a href="mailto:hutshulu@email.com">hutshulu@email.com</a></p>
+
+<p>Phone: <a href="tel:8415049910">8415049910</a></p>
+
+<p>GitHub: 
+<a href="https://github.com/Tshuluu" target="_blank">
+github.com/Tshuluu
+</a>
+</p>
+
+</div>
+
+</div>
+
+<footer>
+✨ 2026 © Hutshulu Tsutso | Student Portfolio ✨
+</footer>
+
+<script>
+
+/* TYPING EFFECT */
+
+const text = "B.Tech IT Student | Aspiring Developer";
+let index = 0;
+
+function type(){
+if(index < text.length){
+document.getElementById("typing").innerHTML += text.charAt(index);
+index++;
+setTimeout(type,60);
+}
+}
+type();
+
+/* SCROLL REVEAL */
+
+const cards = document.querySelectorAll(".card");
+
+window.addEventListener("scroll", function(){
+let windowHeight = window.innerHeight;
+
+cards.forEach(card=>{
+let elementTop = card.getBoundingClientRect().top;
+
+if(elementTop < windowHeight - 100){
+card.classList.add("active");
+}
+});
+});
+
+/* SCROLL PROGRESS BAR */
+
+window.onscroll = function(){
+let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+let scrolled = (winScroll / height) * 100;
+document.getElementById("progress").style.width = scrolled + "%";
+}
+
+</script>
+
+</body>
+</html>
