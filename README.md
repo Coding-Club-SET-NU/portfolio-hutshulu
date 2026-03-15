@@ -3,7 +3,7 @@
 This is my personal portfolio website developed using HTML, CSS and JavaScript.
 
 ## Live Website
-([Add deployed GitHub Pages link here](https://teal-starship-f3c039.netlify.app/))
+([tap here](https://teal-starship-f3c039.netlify.app/))
 
 ## Features
 - Responsive portfolio design
