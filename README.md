@@ -3,7 +3,7 @@
 This is my personal portfolio website developed using HTML, CSS and JavaScript.
 
 ## Live Website
-(Add your deployed GitHub Pages link here)
+([Add deployed GitHub Pages link here](https://teal-starship-f3c039.netlify.app/))
 
 ## Features
 - Responsive portfolio design
@@ -16,6 +16,7 @@ This is my personal portfolio website developed using HTML, CSS and JavaScript.
 - HTML
 - CSS
 - JavaScript
+
 
 ## Author
 Hutshulu Tsutso  
